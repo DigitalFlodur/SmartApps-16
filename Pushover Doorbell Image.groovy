@@ -170,11 +170,11 @@ def sendMessage(evt) {
         
         if(pushPriority == 2)
         {
-          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority", retry: "60", expire: "3600", sound: "$sound"]
+          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", priority: "$pushPriority", retry: "60", expire: "3600", sound: "$sound"]
         }
         else
         {
-          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority", sound: "$sound"]
+          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", priority: "$pushPriority", sound: "$sound"]
         }
         
         log.debug postBody
@@ -185,11 +185,11 @@ def sendMessage(evt) {
         
         if(pushPriority == 2)
         {
-          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority", retry: "60", expire: "3600"]
+          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", priority: "$pushPriority", retry: "60", expire: "3600"]
         }
         else
         {
-          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority"]
+          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", priority: "$pushPriority"]
         }
         
         log.debug postBody
@@ -197,7 +197,8 @@ def sendMessage(evt) {
       
       def params = [
       		uri: 'https://api.pushover.net/1/messages.json',
-            body: postBody
+            body: postBody,
+	    files: "$imagelink"
             ]
       
       httpPost(params){ response ->
