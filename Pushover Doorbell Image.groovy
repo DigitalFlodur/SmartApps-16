@@ -1,17 +1,17 @@
 /**
- *  Pushover Notify Me When
+ *  Pushover Doorbell Image
  *
- *  Author: jim@concipio-solutions.com (original SmartApp written by SmartThings)
- *  Date: 2013-07-20 (original SmartApp written on 2013-03-20)
+ *  Author: Digital Flodur (after jim@concipio-solutions.com) (original SmartApp written by SmartThings)
+ *  Date: 2018-12-26 (jim@concipio-solutions.com on 2013-07-20) (original SmartApp written on 2013-03-20)
  *  Date: 2014-05-06 (added unlock notification w/ user code value)
  */
 
 // Automatically generated. Make future change here.
 definition(
-    name: "Pushover Notify Me When",
-    namespace: "concipio-solutions",
-    author: "jim@concipio-solutions.com",
-    description: "Adds Pushover service to the 'Notify Me When' SmartApp",
+    name: "Pushover Doorbell Image",
+    namespace: "Digital Flodur",
+    author: "Kurtis@DigitalFlodur.com",
+    description: "Adds Pushover service with image to the 'Notify Me When' SmartApp",
     category: "Convenience",
     iconUrl: "https://drupal.org/files/project-images/pushover-app-logo.png",
     iconX2Url: "https://drupal.org/files/project-images/pushover-app-logo.png",
@@ -170,11 +170,11 @@ def sendMessage(evt) {
         
         if(pushPriority == 2)
         {
-          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", priority: "$pushPriority", retry: "60", expire: "3600", sound: "$sound"]
+          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority", retry: "60", expire: "3600", sound: "$sound"]
         }
         else
         {
-          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", priority: "$pushPriority", sound: "$sound"]
+          postBody = [token: "$apiKey", user: "$userKey", device: "$deviceName", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority", sound: "$sound"]
         }
         
         log.debug postBody
@@ -185,11 +185,11 @@ def sendMessage(evt) {
         
         if(pushPriority == 2)
         {
-          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", priority: "$pushPriority", retry: "60", expire: "3600"]
+          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority", retry: "60", expire: "3600"]
         }
         else
         {
-          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", priority: "$pushPriority"]
+          postBody = [token: "$apiKey", user: "$userKey", message: "$thisMessageText", attachment: "$imagelink", priority: "$pushPriority"]
         }
         
         log.debug postBody
