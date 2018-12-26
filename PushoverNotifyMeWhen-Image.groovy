@@ -59,6 +59,7 @@ preferences {
         input "apiKey", "text", title: "Pushover API Key", required: false
         input "userKey", "text", title: "Pushover User Key", required: false
         input "deviceName", "text", title: "Pushover Device Name", required: false
+	input "imagelink", "text", title: "Image Link", required: false
         input "priority", "enum", title: "Pushover Priority", required: false,
         metadata :[
            values: [ 'Badge Only', 'Low', 'Normal', 'High', 'Emergency'
